@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="space-y-1 md:space-y-2 text-gray-300 text-sm md:text-base">
               <p>Kamleshbhai Ramani: <a href="tel:9979943944" className="hover:text-white">9979943944</a></p>
               <p>Hasmukhbhai Ramani: <a href="tel:9376319000" className="hover:text-white">9376319000</a></p>
-              <p>Meet Ramani: <a href="tel:9979943944" className="hover:text-white">9979943944</a></p>
+              <p>Meet Ramani: <a href="tel:9979943944" className="hover:text-white">9979843944</a></p>
             </div>
           </div>
           

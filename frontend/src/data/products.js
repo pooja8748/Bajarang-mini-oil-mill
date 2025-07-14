@@ -9,7 +9,7 @@ export const productsData = [
     image: '/images/groundnut-oil.jpg',
     min_price: 120,
     prices: [
-      { id: 1, package_size: '15.5', unit_type: 'Kg', price: 3350, is_active: true },
+      { id: 1, package_size: '15.5', unit_type: 'Ltr', price: 3350, is_active: true },
       { id: 2, package_size: '5', unit_type: 'Ltr', price: 1150, is_active: true },
       { id: 3, package_size: '1', unit_type: 'Ltr', price: 240, is_active: true },
       { id: 4, package_size: '500', unit_type: 'ml', price: 120, is_active: true },
@@ -26,7 +26,7 @@ export const productsData = [
     image: '/images/white-sesame-oil.jpg',
     min_price: 90,
     prices: [
-      { id: 6, package_size: '15.5', unit_type: 'Kg', price: 5000, is_active: true },
+      { id: 6, package_size: '15.5', unit_type: 'Ltr', price: 5000, is_active: true },
       { id: 7, package_size: '5', unit_type: 'Ltr', price: 1700, is_active: true },
       { id: 8, package_size: '1', unit_type: 'Ltr', price: 350, is_active: true },
       { id: 9, package_size: '500', unit_type: 'ml', price: 180, is_active: true },
@@ -44,7 +44,7 @@ export const productsData = [
     image: '/images/black-sesame-oil.jpg',
     min_price: 120,
     prices: [
-      { id: 12, package_size: '15.5', unit_type: 'Kg', price: 7000, is_active: true },
+      { id: 12, package_size: '15.5', unit_type: 'Ltr', price: 7000, is_active: true },
       { id: 13, package_size: '5', unit_type: 'Ltr', price: 2350, is_active: true },
       { id: 14, package_size: '1', unit_type: 'Ltr', price: 480, is_active: true },
       { id: 15, package_size: '500', unit_type: 'ml', price: 240, is_active: true },
@@ -72,7 +72,7 @@ export const productsData = [
   {
     id: 5,
     name_gujarati: 'એરંડિયું (દિવેલ)',
-    name_english: 'Groundnut Cake Oil (Filtered)',
+    name_english: 'Castor oil',
     slug: 'groundnut-cake-oil',
     description: 'Filtered Groundnut Cake Oil with rich taste and aroma. Economical choice for daily cooking needs.',
     features: ['Filtered Quality', 'Rich Taste', 'Economical', 'Plasma Verified', 'Daily Cooking'],
@@ -130,9 +130,20 @@ export const productsData = [
     image: '/images/kalonji-oil.jpg',
     min_price: 70,
     prices: [
-      { id: 38, package_size: '15.5', unit_type: 'Kg', price: 150, is_active: true },
-      { id: 39, package_size: '500', unit_type: 'ml', price: 70, is_active: true },
-      { id: 40, package_size: '100', unit_type: 'ml', price: 100, is_active: true }
+      { id: 38, package_size: '100', unit_type: 'ml', price: 150, is_active: true },
+    ]
+  },
+  {
+    id: 9,
+    name_gujarati: 'અળસીનું તેલ',
+    name_english: 'Flaxseed oil',
+    slug: 'Flaxseed oil',
+    description: 'Pure Alsi (Flaxseed) Oil rich in essential nutrients. Known for its Omega-3 content, heart health benefits, and anti-inflammatory properties.',
+    features: ['Rich in Omega-3', 'Heart Health Support', 'Anti-Inflammatory', 'Nutritional Supplement', 'Plasma Verified', 'Pure Flaxseed Oil'],
+    image: '/images/flaxseed-oil.jpg',
+    min_price: 70,
+    prices: [
+      { id: 39, package_size: '100', unit_type: 'ml', price: 70, is_active: true },
     ]
   }
 ]; 
