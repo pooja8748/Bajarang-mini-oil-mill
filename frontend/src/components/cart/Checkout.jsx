@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useCart } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Checkout = () => {
-  const { items, getTotalPrice } = useCart();
+  const { items, getTotalPrice, clearCart } = useCart();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     address: '',
-    paymentMethod: 'cod'
+    paymentMethod: 'demo'
   });
   const [loading, setLoading] = useState(false);
 
@@ -21,15 +22,40 @@ const Checkout = () => {
     });
   };
 
+  const createOrder = async () => {
+    const orderData = {
+      customer_name: formData.name,
+      customer_email: formData.email,
+      customer_phone: formData.phone,
+      shipping_address: formData.address,
+      notes: '',
+      items: items.map(item => ({
+        product: item.product,
+        quantity: item.quantity,
+        package_size: item.package_size,
+        unit_type: item.unit_type,
+        price: item.price
+      }))
+    };
+
+    const response = await axios.post('http://localhost:8000/api/orders/', orderData);
+    return response.data;
+  };
+
+  const handlePayment = async (order) => {
+    // Simulate payment success for demo
+    alert('Order placed successfully! (Demo mode - no actual payment)');
+    clearCart();
+    navigate('/');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Cash on Delivery only
-      alert('Order placed successfully! We will contact you soon for delivery.');
-      localStorage.removeItem('cart');
-      navigate('/');
+      const order = await createOrder();
+      await handlePayment(order);
     } catch (error) {
       console.error('Error processing order:', error);
       alert('Error processing order. Please try again.');
@@ -125,14 +151,14 @@ const Checkout = () => {
                   <input
                     type="radio"
                     name="paymentMethod"
-                    value="cod"
+                    value="demo"
                     checked={true}
                     readOnly
                     className="mr-2"
                   />
-                  <span className="font-medium text-green-700">Cash on Delivery</span>
+                  <span className="font-medium text-green-700">Demo Order (No Payment)</span>
                 </div>
-                <p className="text-sm text-green-600 mt-1">Pay when your order is delivered to your doorstep</p>
+                <p className="text-sm text-green-600 mt-1">Order will be placed without actual payment for demo</p>
               </div>
             </div>
             

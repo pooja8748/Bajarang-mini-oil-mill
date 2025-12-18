@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from orders.admin_views import admin_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -9,6 +10,7 @@ urlpatterns = [
     path('api/orders/', include('orders.urls')),
     path('api/cart/', include('cart.urls')),
     path('api/auth/', include('rest_framework.urls')),
+    path('api/admin/login/', admin_login, name='admin-login'),
 ]
 
 if settings.DEBUG:

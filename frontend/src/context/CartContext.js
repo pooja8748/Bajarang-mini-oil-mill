@@ -52,12 +52,12 @@ export const CartProvider = ({ children }) => {
       // For development, use local storage instead of API
       const cartItem = {
         id: Date.now(),
-        product: item.product,
+        product: item.product || 1, // Default to product ID 1
         product_name: item.product_name || 'Product',
         product_image: item.product_image,
         quantity: item.quantity,
-        package_size: item.package_size,
-        unit_type: item.unit_type,
+        package_size: item.package_size || '1',
+        unit_type: item.unit_type || 'Ltr',
         price: item.price,
         total_price: item.price * item.quantity
       };
@@ -104,6 +104,11 @@ export const CartProvider = ({ children }) => {
     return state.items.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const clearCart = () => {
+    dispatch({ type: 'SET_CART', payload: [] });
+    localStorage.removeItem('cart');
+  };
+
   useEffect(() => {
     fetchCart();
   }, []);
@@ -116,6 +121,7 @@ export const CartProvider = ({ children }) => {
       removeFromCart,
       getTotalPrice,
       getTotalItems,
+      clearCart,
       fetchCart
     }}>
       {children}
